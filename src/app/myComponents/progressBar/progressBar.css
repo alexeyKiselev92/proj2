@@ -1,0 +1,10 @@
+.container{
+    width: 100%;
+    background-color: gray;
+}
+
+.strip{
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
