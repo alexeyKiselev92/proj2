@@ -1,0 +1,7 @@
+.main{
+    font: 24px Calibri, serif;
+}
+
+tr:nth-child(odd) {
+    background-color: gainsboro;
+}

@@ -3,8 +3,8 @@ import { Component, Input } from '@angular/core';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'progress-bar',
-    templateUrl: './myComponents/progressBar/progressBar.html',
-    styleUrls: ['./myComponents/progressBar/progressBar.css']
+    templateUrl: 'progressBar.html',
+    styleUrls: ['progressBar.css']
 })
 
 export class ProgressBarComponent {
