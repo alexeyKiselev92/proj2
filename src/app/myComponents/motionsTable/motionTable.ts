@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TableRowItem } from '../../Types/table-row-item';
 import { DataService } from '../../service/data.service';
 import { ProgressBarComponent } from '../progressBar/progressBar.component';
 import { OrderByDesc } from '../../myPipes/descPipe';
-import { EventEmitter } from 'events';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -15,7 +14,8 @@ import { EventEmitter } from 'events';
 // tslint:disable-next-line:component-class-suffix
 export class MotionTable implements OnInit {
     @Input() fromJSON: boolean;
-    @Output() selectedItem: EventEmitter = new EventEmitter();
+    @Input() tableName: string;
+    @Output() selectedItem: EventEmitter<TableRowItem> = new EventEmitter<TableRowItem>();
     items: TableRowItem[];
 
     constructor(private dataService: DataService) {
@@ -34,5 +34,9 @@ export class MotionTable implements OnInit {
 
     ngOnInit() {
         this.Update(this.fromJSON);
+    }
+
+    onMouseHover(item: TableRowItem) {
+        this.selectedItem.emit(item);
     }
 }
