@@ -24,11 +24,38 @@ export class MotionTable implements OnInit {
 
     Update(fromJSON: boolean): void {
         // tslint:disable-next-line:curly
-        if (!fromJSON)
-            this.dataService.getTableRowItemsObservable().subscribe(data => this.items = data);
+        if (!fromJSON) {
+            this.dataService.getTableRowItemsObservable().subscribe(data => this.items = data.sort((a: TableRowItem, b: TableRowItem) => {
+                if (a.value > b.value) {
+                    return -1;
+                }
+                // tslint:disable-next-line:one-line
+                else if (a.value < b.value) {
+                    return 1;
+                }
+                // tslint:disable-next-line:one-line
+                else {
+                    return 0;
+                }
+            }).slice(0, 3));
+        }
         // tslint:disable-next-line:curly
-        else
-            this.dataService.getTableRowItemsJSON().subscribe(data => this.items = data);
+        // tslint:disable-next-line:one-line
+        else {
+            this.dataService.getTableRowItemsJSON().subscribe(data => this.items = data.sort((a: TableRowItem, b: TableRowItem) => {
+                if (a.value > b.value) {
+                    return -1;
+                }
+                // tslint:disable-next-line:one-line
+                else if (a.value < b.value) {
+                    return 1;
+                }
+                // tslint:disable-next-line:one-line
+                else {
+                    return 0;
+                }
+            }).slice(0, 3));
+        }
     }
 
 
