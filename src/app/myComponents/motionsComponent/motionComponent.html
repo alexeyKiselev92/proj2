@@ -1,7 +1,7 @@
 <div>
-    <motiontable (selectedItem)="onSelectedItem($event)" [tableName]='Table1' [items]="items"></motiontable>
+    <motiontable (selectedItem)="onSelectedItem($event)" [tableName]="'Table1'" [items]='items'></motiontable>
     <p></p>
-    <motiontable (selectedItem)="onSelectedItem($event)" [tableName]='Table2' [items]="itemsJSON"></motiontable>
+    <motiontable (selectedItem)="onSelectedItem($event)" [tableName]="'Table2'" [items]='itemsJSON'></motiontable>
     <p></p>
     <div *ngIf="selected">
         <label class="selection">{{selected.name}}: {{selected.value}}</label>
